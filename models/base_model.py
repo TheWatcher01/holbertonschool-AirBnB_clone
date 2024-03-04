@@ -27,4 +27,4 @@ class BaseModel:
 
     def __str__(self):
         """Method returns string representation of BaseModel instance"""
-        return f"[{self.__class__.__name__}] ({self.id}) {self.to_dict()}"
+        return "[{}] ({}) {}".format(self.__class__.__name__, self.id, self.to_dict())
