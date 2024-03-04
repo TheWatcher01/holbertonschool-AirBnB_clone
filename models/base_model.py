@@ -6,6 +6,7 @@ from datetime import datetime
 
 class BaseModel:
     """This class is base model for all other classes in this project"""
+
     def __init__(self):
         """
         Method initializes new instance of BaseModel class
@@ -13,6 +14,10 @@ class BaseModel:
         self.id = str(uuid.uuid4())
         self.created_at = datetime.now()
         self.updated_at = datetime.now()
+
+    def __str__(self):
+        """Method returns string representation of BaseModel instance"""
+        return "[{}] ({}) {}".format(self.__class__.__name__, self.id, self.to_dict())
 
     def save(self):
         """Method updates updated_at attribute with current time"""
@@ -26,7 +31,3 @@ class BaseModel:
         dict_copy['created_at'] = self.created_at.isoformat()
         dict_copy['updated_at'] = self.updated_at.isoformat()
         return dict_copy
-
-    def __str__(self):
-        """Method returns string representation of BaseModel instance"""
-        return "[{}] ({}) {}".format(self.__class__.__name__, self.id, self.to_dict())
