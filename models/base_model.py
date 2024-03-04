@@ -6,8 +6,10 @@ from datetime import datetime
 
 class BaseModel:
     """This class is base model for all other classes in this project"""
-    def __init__(self, *args, **kwargs):
-        """Method initializes new instance of BaseModel class"""
+    def __init__(self):
+        """
+        Method initializes new instance of BaseModel class
+        """
         self.id = str(uuid.uuid4())
         self.created_at = datetime.now()
         self.updated_at = datetime.now()
