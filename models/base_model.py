@@ -17,7 +17,7 @@ class BaseModel:
 
     def __str__(self):
         """Method returns string representation of BaseModel instance"""
-        return "[{}] ({}) {}".format(self.__class__.__name__, self.id, self.to_dict())
+        return "[{}] ({}) {}".format(self.__class__.__name__, self.id, self.__dict__ ())
 
     def save(self):
         """Method updates updated_at attribute with current time"""
