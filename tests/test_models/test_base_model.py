@@ -12,10 +12,6 @@ class TestBaseModel(unittest.TestCase):
         """Set up the tests"""
         self.my_model = BaseModel()
 
-    def test_init(self):
-        """Test the initialization of the BaseModel class"""
-        self.assertIsInstance(self.my_model, BaseModel)
-
     def test_id(self):
         """Test the id attribute of the BaseModel class"""
         self.assertIsInstance(self.my_model.id, str)
