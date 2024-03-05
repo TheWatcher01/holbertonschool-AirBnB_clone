@@ -24,6 +24,7 @@ classes = {
     "Review": review.Review
 }
 
+
 class FileStorage:
     """Class serializes instances to a JSON file and deserializes JSON file
     to instances"""
@@ -44,23 +45,27 @@ class FileStorage:
         """Method serializes __objects to JSON file (path: __file_path)"""
         try:
             objects_to_json = {}  # Create dictionary of objects
-            for key in self.__objects: # For each key in __objects
-                objects_to_json[key] = self.__objects[key].to_dict() # Add object to dict
+            for key in self.__objects:  # For each key in __objects
+                # Add object to dictionary
+                objects_to_json[key] = self.__objects[key].to_dict()
             with open(self.__file_path, 'w') as file:  # Open file
-                json.dump(objects_to_json, file)  # Write to file (serialize to JSON)
+                # Write to file (serialize to JSON)
+                json.dump(objects_to_json, file)
         except Exception as err:
             print(f"Error: {err}")
 
     def reload(self):
         """Method deserializes JSON file to __objects"""
-        if os.path.exists(self.__file_path):  # If file exists
+        try:
             try:
                 with open(self.__file_path, 'r') as file:  # Open file
                     data = json.load(file)  # Load data from file
                     for key in data:  # For each item in data
                         class_name = data[key]["__class__"]  # Get class name
-                        self.__objects[key] = classes[class_name](**data[key])  # Create new object
+                        # Create new object
+                        self.__objects[key] = classes[class_name](**data[key])
             except Exception as e:
                 print(f"Error: {e}")
-        else:
+        except FileNotFoundError:
+            # If file not found (first time program runs)
             pass
