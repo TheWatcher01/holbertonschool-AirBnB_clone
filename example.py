@@ -57,6 +57,7 @@ def app() -> None:
 
 Choice("BaseModel (Task 3)", "examples.test_base_model")
 Choice("BaseModel (Task 4)", "examples.test_base_model_dict")
+Choice("BaseModel (Task 5)", "examples.test_save_reload_base_model")
 
 #Create your choices here:
     #Choice("My Choice", my_choice_location)
