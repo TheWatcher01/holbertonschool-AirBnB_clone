@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """Module contains BaseModel class for AirBnB clone"""
-from models.engine.file_storage import FileStorage
+from models import storage
 from datetime import datetime
 import uuid
 
@@ -37,7 +37,7 @@ class BaseModel:
     def save(self):
         """Method updates updated_at attribute with current time"""
         self.updated_at = datetime.now()
-        FileStorage().save()
+        storage.save()
 
     def to_dict(self):
         """Method to dictionary containing all keys/values  of __dict__
