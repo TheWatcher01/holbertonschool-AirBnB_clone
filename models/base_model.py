@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """Module contains BaseModel class for AirBnB clone"""
-from datetime import datetime
 from models.engine.file_storage import FileStorage
+from datetime import datetime
 import uuid
 
 
