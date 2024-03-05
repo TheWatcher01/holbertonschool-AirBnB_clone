@@ -25,8 +25,10 @@ class FileStorage:
         """Method serializes __objects to JSON file (path: __file_path)"""
         try:
             with open(FileStorage.__file_path, 'w') as file:  # Open file
-                json.dump({key: obj.to_dict()  # Dump objects dict to file
-                           for key, obj in FileStorage.__objects.items()}, file)
+                json.dump({
+                    key: obj.to_dict()  # Dump objects dict to file
+                    for key, obj in FileStorage.__objects.items()
+                }, file)
         except Exception as e:
             print(f"Error: {e}")
 
