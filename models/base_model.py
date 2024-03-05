@@ -27,8 +27,8 @@ class BaseModel:
                     setattr(self, key, value)
         else:  # If kwargs is empty, initialize with default values
             self.id = str(uuid.uuid4())  # Set id to random UUID
-            self.created_at = datetime.now()  # Set created_at to current time
-            self.updated_at = datetime.now()  # Set updated_at to current time
+            self.created_at = datetime.utcnow()  # Set created_at to current time
+            self.updated_at = datetime.utcnow()  # Set updated_at to current time
         models.storage.new(self)  # Add new instance to FileStorage.__objects
 
     def __str__(self):
