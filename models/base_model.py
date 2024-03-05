@@ -44,7 +44,7 @@ class BaseModel:
 
     def save(self):
         """Method updates updated_at attribute with current time"""
-        self.updated_at = datetime.now()
+        self.updated_at = datetime.utcnow()
         # Save to file without importing FileStorage
         models.storage.save()
 
