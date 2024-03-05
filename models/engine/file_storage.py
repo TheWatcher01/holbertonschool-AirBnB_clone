@@ -57,15 +57,13 @@ class FileStorage:
     def reload(self):
         """Method deserializes JSON file to __objects"""
         try:
-            try:
-                with open(self.__file_path, 'r') as file:  # Open file
-                    data = json.load(file)  # Load data from file
-                    for key in data:  # For each item in data
-                        class_name = data[key]["__class__"]  # Get class name
+            with open(self.__file_path, 'r') as file:  # Open file
+                data = json.load(file)  # Load data from file
+                for key in data:  # For each item in data
+                    class_name = data[key]["__class__"]  # Get class name
+                    if class_name in classes:
                         # Create new object
                         self.__objects[key] = classes[class_name](**data[key])
-            except Exception as e:
-                print(f"Error: {e}")
         except FileNotFoundError:
             # If file not found (first time program runs)
             pass
