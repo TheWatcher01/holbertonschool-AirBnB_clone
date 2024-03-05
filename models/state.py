@@ -2,9 +2,15 @@
 """This module contains the State class for the AirBnB clone"""
 
 
-class State:
+from models import base_model
+
+class State(base_model.BaseModel):
     """
     This class is a state for the AirBnB clone
-    Note: State class is empty for now to work with FileStorage
     """
-    pass
+
+    name = ""
+
+    def __init__(self, *args, **kwargs):
+        """initializes the State"""
+        super().__init__(*args, **kwargs)
