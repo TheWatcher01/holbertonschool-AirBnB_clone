@@ -1,5 +1,8 @@
 #!/usr/bin/python3
 """ Unittest for BaseModel """
+
+
+import models
 from models.base_model import BaseModel
 from datetime import datetime
 import unittest
@@ -25,9 +28,19 @@ class TestBaseModel(unittest.TestCase):
 
     def test_save(self):
         """Test the save method of the BaseModel class"""
+        # Save the old "updated_at" and call save
         old_updated_at = self.model.updated_at
         self.model.save()
+
+        # Check if "updated_at" has been updated
         self.assertNotEqual(self.model.updated_at, old_updated_at)
+
+        # Check if "updated_at" is a datetime object
+        self.assertIsInstance(self.model.updated_at, datetime)
+
+        # Check if the object is saved to file storage
+        all_objects = models.storage.all()
+        self.assertIn(f"BaseModel.{self.model.id}", all_objects)
 
     def test_to_dict(self):
         """Test the to_dict method of the BaseModel class"""
