@@ -38,6 +38,7 @@ class TestFileStorage(unittest.TestCase):
         Test the save method of the FileStorage class
         """
         # Test if save creates a file
+        self.storage.new(self.model)
         self.storage.save()
         self.assertTrue(os.path.exists(self.storage._FileStorage__file_path))
 
