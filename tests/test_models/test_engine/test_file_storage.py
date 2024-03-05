@@ -70,7 +70,7 @@ class TestFileStorage(unittest.TestCase):
         self.storage.save()
         self.storage.reload()
         with open("file.json", 'r') as file:
-           self.assertIn("BaseModel." + self.model.id, json.load(file))
+            self.assertIn("BaseModel." + self.model.id, json.load(file))
 
         # Test if reload correctly updates __objects
         self.storage.save()
