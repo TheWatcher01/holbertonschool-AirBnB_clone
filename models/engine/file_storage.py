@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-"""This module contains the file_storage for the AirBnB clone"""
+"""This module contains file_storage for AirBnB clone"""
+from models.base_model import BaseModel
+import models
 import json
 import os
 
@@ -8,34 +10,40 @@ class FileStorage:
     """Class serializes instances to a JSON file and deserializes JSON file
     to instances"""
 
-    __file_path = "file.json"  # Path to the JSON file
+    __file_path = "file.json"  # Path to JSON file
     __objects = {}  # Dictionary of objects
 
     def all(self):
-        """Method returns the dictionary __objects"""
-        return FileStorage.__objects  # Return the dictionary of objects
+        """Method returns dictionary __objects"""
+        return FileStorage.__objects  # Return dictionary of objects
 
     def new(self, obj):
-        """Method sets in __objects the obj with key <obj class name>.id"""
+        """Method sets in __objects obj with key <obj class name>.id"""
         key = obj.__class__.__name__ + "." + obj.id  # Create key for object
-        FileStorage.__objects[key] = obj  # Add the object to the dictionary
+        FileStorage.__objects[key] = obj  # Add object to dictionary
 
     def save(self):
-        """Method serializes __objects to the JSON file (path: __file_path)"""
-        with open(FileStorage.__file_path, 'w') as file:  # Open the file
-            # Dump the objects dictionary to the file
-            json.dump({key: obj.to_dict()
-                      for key, obj in FileStorage.__objects.items()}, file)
+        """Method serializes __objects to JSON file (path: __file_path)"""
+        try:
+            with open(FileStorage.__file_path, 'w') as file:  # Open file
+                json.dump({key: obj.to_dict()  # Dump objects dict to file
+                           for key, obj in FileStorage.__objects.items()}, file)
+        except Exception as e:
+            print(f"Error: {e}")
 
     def reload(self):
-        """Method deserializes the JSON file to __objects"""
-        if os.path.exists(FileStorage.__file_path):  # If the file exists
-            with open(FileStorage.__file_path, 'r') as file:  # Open the file
-                data = json.load(file)  # Load the data from the file
-                for key, value in data.items():  # For each item in the data
-                    class_name = value["__class__"]  # Get the class name
-                    # Remove the class name from the value
-                    value.pop("__class__", None)
-                    obj = eval(class_name)(**value)  # Create a new object
-                    # Add the object to the dictionary
-                    FileStorage.__objects[key] = obj
+        """Method deserializes JSON file to __objects"""
+        if os.path.exists(FileStorage.__file_path):  # If file exists
+            try:
+                with open(FileStorage.__file_path, 'r') as file:  # Open file
+                    data = json.load(file)  # Load data from file
+                    for key, value in data.items():  # For each item in data
+                        class_name = value["__class__"]  # Get class name
+                        value.pop("__class__", None)  # Remove __class__ key
+                        cls = getattr(models, class_name)  # Get class
+                        obj = cls(**value)  # Create a new object
+                        FileStorage.__objects[key] = obj  # Add object to dict
+            except Exception as e:
+                print(f"Error: {e}")
+        else:
+            pass
