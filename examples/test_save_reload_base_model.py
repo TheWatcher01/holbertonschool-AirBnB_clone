@@ -12,6 +12,7 @@ from models.base_model import BaseModel
 
 # Retrieve all objects from storage
 all_objs = storage.all()
+old_objs = all_objs.copy()
 
 print("-- Reloaded objects --")
 # Iterate over all object IDs in storage
@@ -32,3 +33,7 @@ my_model.my_number = 89
 my_model.save()
 # Print instance
 print(my_model)
+print("-- New object saved --")
+print("Old objects count:", len(old_objs))
+print("New objects count:", len(all_objs))
+print("difference:", len(all_objs) - len(old_objs))
