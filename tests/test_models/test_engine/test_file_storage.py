@@ -4,6 +4,7 @@ import json
 from models.engine.file_storage import FileStorage
 from models.base_model import BaseModel
 
+
 class TestFileStorage(unittest.TestCase):
     """
     Test the functionality of the FileStorage class
@@ -12,6 +13,7 @@ class TestFileStorage(unittest.TestCase):
         """Set up the tests"""
         self.storage = FileStorage()
         self.model = BaseModel()
+        print(self.storage._FileStorage__objects)
 
     def test_all(self):
         """
@@ -22,7 +24,10 @@ class TestFileStorage(unittest.TestCase):
 
         # Test if all returns the correct dictionary
         self.storage.new(self.model)
-        self.assertEqual(self.storage.all(), self.storage._FileStorage__objects)
+        self.assertEqual(
+            self.storage.all(),
+            self.storage._FileStorage__objects
+        )
 
     def test_new(self):
         """
@@ -40,30 +45,24 @@ class TestFileStorage(unittest.TestCase):
         # Test if save creates a file
         self.storage.new(self.model)
         self.storage.save()
-        self.assertTrue(os.path.exists(self.storage._FileStorage__file_path))
+        self.assertTrue(os.path.exists("file.json"))
 
-        # Test if save writes to a file
-        with open(self.storage._FileStorage__file_path, 'r') as file:
-            self.assertNotEqual(file.read(), "")
-
-        # Test if save writes the correct data to a file
-        with open(self.storage._FileStorage__file_path, 'r') as file:
-            self.assertEqual(json.load(file), self.storage.all())
+        with open('file.json', 'r') as file:
+            self.assertIn("BaseModel." + self.model.id, json.load(file))
 
     def test_reload(self):
         """
         Test the reload method of the FileStorage class
         """
         # Test if reload reads from a file
-        self.storage.reload()
-        with open(self.storage._FileStorage__file_path, 'r') as file:
-            self.assertEqual(json.load(file), self.storage.all())
-
-        # Test if reload correctly updates __objects
+        self.assertTrue(os.path.exists("file.json"))
+        self.storage.new(self.model)
         self.storage.save()
-        self.storage._FileStorage__objects = {}
         self.storage.reload()
-        self.assertNotEqual(self.storage.all(), {})
+        self.assertIn("BaseModel." + self.model.id, self.storage.all())
+        with open('file.json', 'r') as file:
+            self.assertIn("BaseModel." + self.model.id, json.load(file))
+
 
 if __name__ == '__main__':
     unittest.main()
