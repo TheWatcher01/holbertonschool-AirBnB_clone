@@ -2,12 +2,9 @@
 """Module contains BaseModel class for AirBnB clone"""
 
 
+import uuid
 import models
 from datetime import datetime
-import uuid
-
-
-format_style = '%Y-%m-%dT%H:%M:%S.%f'
 
 
 class BaseModel:
@@ -25,7 +22,11 @@ class BaseModel:
                 # If key is created_at or updated_at...
                 if key in ["created_at", "updated_at"]:
                     # ...Convert value to datetime object
-                    setattr(self, key, datetime.strptime(value, format_style))
+                    setattr(
+                        self,
+                        key,
+                        datetime.strptime(value, '%Y-%m-%dT%H:%M:%S.%f')
+                    )
                 # If key is not __class__...
                 elif key != "__class__":
                     # ...Set attribute of instance to key/value
@@ -35,7 +36,7 @@ class BaseModel:
             # Set created_at to current time
             self.created_at = datetime.utcnow()
             # Set updated_at to current time
-            self.updated_at = datetime.utcnow()
+            self.updated_at = self.created_at
         models.storage.new(self)  # Add new instance to FileStorage.__objects
 
     def __str__(self):
