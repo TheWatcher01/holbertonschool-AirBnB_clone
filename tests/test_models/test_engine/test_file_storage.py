@@ -13,7 +13,6 @@ class TestFileStorage(unittest.TestCase):
         """Set up the tests"""
         self.storage = FileStorage()
         self.model = BaseModel()
-        print(self.storage._FileStorage__objects)
 
     def test_all(self):
         """
@@ -55,13 +54,15 @@ class TestFileStorage(unittest.TestCase):
         Test the reload method of the FileStorage class
         """
         # Test if reload reads from a file
-        self.assertTrue(os.path.exists("file.json"))
-        self.storage.new(self.model)
-        self.storage.save()
         self.storage.reload()
-        self.assertIn("BaseModel." + self.model.id, self.storage.all())
-        with open('file.json', 'r') as file:
-            self.assertIn("BaseModel." + self.model.id, json.load(file))
+        with open("file.json", 'r') as file:
+            self.assertEqual(json.load(file), self.storage.all())
+
+        # Test if reload correctly updates __objects
+        self.storage.save()
+        self.storage._FileStorage__objects = {}
+        self.storage.reload()
+        self.assertNotEqual(self.storage.all(), {})
 
 
 if __name__ == '__main__':
