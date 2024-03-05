@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """This module contains file_storage for AirBnB clone"""
-from models.base_model import BaseModel
 import models
 import json
 import os
