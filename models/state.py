@@ -4,6 +4,7 @@
 
 from models import base_model
 
+
 class State(base_model.BaseModel):
     """
     This class is a state for the AirBnB clone

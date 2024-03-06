@@ -28,6 +28,7 @@ class TestBaseModel(unittest.TestCase):
 
     def test_save(self):
         """Test the save method of the BaseModel class"""
+        model_id = f"BaseModel.{self.model.id}"
         # Save the old "updated_at" and call save
         old_updated_at = self.model.updated_at
         self.model.save()
@@ -40,7 +41,9 @@ class TestBaseModel(unittest.TestCase):
 
         # Check if the object is saved to file storage
         all_objects = models.storage.all()
-        self.assertIn(f"BaseModel.{self.model.id}", all_objects)
+        self.assertIn(model_id, all_objects)
+        with open("file.json", "r") as file:
+            self.assertIn(model_id, file.read())
 
     def test_to_dict(self):
         """Test the to_dict method of the BaseModel class"""
