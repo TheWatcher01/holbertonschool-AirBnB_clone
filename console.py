@@ -123,7 +123,11 @@ class HBNBCommand(cmd.Cmd):
                         attribute_type = str
                 else:
                     attribute_type = type(getattr(instance, attribute_name))
-                setattr(instance, attribute_name, attribute_type(attribute_value))
+                setattr(
+                    instance,
+                    attribute_name,
+                    attribute_type(attribute_value)
+                )
                 print(instance)
                 instance.save()
         else:
