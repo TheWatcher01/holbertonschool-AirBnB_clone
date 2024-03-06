@@ -58,38 +58,26 @@ class HBNBCommand(cmd.Cmd):
         args = arg.split()
         if (self.obj_arg_valid(args) is False):
             return
-        try:
-            class_name = args[0]
-            instance_id = args[1]
-            instance = models.storage.get(class_name, instance_id)
-            if instance:
-                print(instance)
-            else:
-                print("** no instance found **")
-        except IndexError:
-            if len(args) == 1:
-                print("** instance id missing **")
-            else:
-                print("** class doesn't exist **")
+        class_name = args[0]
+        instance_id = args[1]
+        instance = models.storage.get(class_name, instance_id)
+        if instance:
+            print(instance)
+        else:
+            print("** no instance found **")
 
     def do_destroy(self, arg):
         """Delete an instance based on the class name and id"""
         args = arg.split()
         if (self.obj_arg_valid(args) is False):
             return
-        try:
-            class_name = args[0]
-            instance_id = args[1]
-            instance = models.storage.get(class_name, instance_id)
-            if instance:
-                models.storage.delete(instance)
-            else:
-                print("** no instance found **")
-        except IndexError:
-            if len(args) == 1:
-                print("** instance id missing **")
-            else:
-                print("** class doesn't exist **")
+        class_name = args[0]
+        instance_id = args[1]
+        instance = models.storage.get(class_name, instance_id)
+        if instance:
+            models.storage.delete(instance)
+        else:
+            print("** no instance found **")
 
     def do_all(self, arg):
         """Print all instances"""
@@ -97,39 +85,39 @@ class HBNBCommand(cmd.Cmd):
             instances = models.storage.all()
             print([str(instance) for instance in instances.values()])
         else:
-            try:
-                instances = models.storage.all(eval(arg))
-                print([str(instance) for instance in instances.values()])
-            except NameError:
+            _class = models.storage.get_class(arg)
+            if (not _class):
                 print("** class doesn't exist **")
+                return
+            all = models.storage.all()
+            instances = []
+            for key in all:
+                instance = all[key]
+                if instance.__class__ == _class:
+                    instances.append(str(instance))
+            print([str(instance) for instance in instances])
 
     def do_update(self, arg):
         """Update an instance based on the class name and id"""
         args = arg.split()
-        if not args:
-            print("** class name missing **")
+        if (self.obj_arg_valid(args) is False):
             return
-        try:
-            class_name = args[0]
-            instance_id = args[1]
-            instance = models.storage.get(class_name, instance_id)
-            if instance:
-                if len(args) < 3:
-                    print("** attribute name missing **")
-                elif len(args) < 4:
-                    print("** value missing **")
-                else:
-                    attribute_name = args[2]
-                    attribute_value = args[3]
-                    setattr(instance, attribute_name, attribute_value)
-                    instance.save()
+        class_name = args[0]
+        instance_id = args[1]
+        instance = models.storage.get(class_name, instance_id)
+        if instance:
+            if len(args) < 3:
+                print("** attribute name missing **")
+            elif len(args) < 4:
+                print("** value missing **")
             else:
-                print("** no instance found **")
-        except IndexError:
-            if len(args) == 1:
-                print("** instance id missing **")
-            else:
-                print("** class doesn't exist **")
+                attribute_name = args[2]
+                attribute_value = args[3]
+                attribute_type = type(getattr(instance, attribute_name))
+                setattr(instance, attribute_name, attribute_type(attribute_value))
+                instance.save()
+        else:
+            print("** no instance found **")
 
     def emptyline(self):
         """Do nothing when an empty line is entered"""
