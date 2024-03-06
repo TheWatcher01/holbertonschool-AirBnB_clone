@@ -61,7 +61,8 @@ class FileStorage:
                     class_name = data[key]["__class__"]  # Get class name
                     if class_name in self.__classes:
                         # Create new object
-                        self.__objects[key] = self.__classes[class_name](**data[key])
+                        _class = self.__classes[class_name]
+                        self.__objects[key] = _class(**data[key])
         except FileNotFoundError:
             # If file not found (first time program runs)
             pass
