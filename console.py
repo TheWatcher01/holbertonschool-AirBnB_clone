@@ -112,9 +112,19 @@ class HBNBCommand(cmd.Cmd):
                 print("** value missing **")
             else:
                 attribute_name = args[2]
-                attribute_value = args[3]
-                attribute_type = type(getattr(instance, attribute_name, None))
+                attribute_value: str = args[3]
+                attribute_type = None
+                if (not hasattr(instance, attribute_name)):
+                    if (attribute_value.isdigit()):
+                        attribute_type = int
+                    elif (attribute_value.replace('.', '', 1).isdigit()):
+                        attribute_type = float
+                    else:
+                        attribute_type = str
+                else:
+                    attribute_type = type(getattr(instance, attribute_name))
                 setattr(instance, attribute_name, attribute_type(attribute_value))
+                print(instance)
                 instance.save()
         else:
             print("** no instance found **")
