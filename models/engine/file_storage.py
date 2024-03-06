@@ -14,21 +14,19 @@ import json
 import os
 
 
-classes = {
-    "BaseModel": base_model.BaseModel,
-    "User": user.User,
-    "State": state.State,
-    "City": city.City,
-    "Amenity": amenity.Amenity,
-    "Place": place.Place,
-    "Review": review.Review
-}
-
-
 class FileStorage:
     """Class serializes instances to a JSON file and deserializes JSON file
     to instances"""
 
+    __classes = {
+        "BaseModel": base_model.BaseModel,
+        "User": user.User,
+        "State": state.State,
+        "City": city.City,
+        "Amenity": amenity.Amenity,
+        "Place": place.Place,
+        "Review": review.Review
+    }
     __file_path = "file.json"  # Path to JSON file
     __objects = {}  # Dictionary of objects
 
@@ -61,9 +59,30 @@ class FileStorage:
                 data = json.load(file)  # Load data from file
                 for key in data:  # For each item in data
                     class_name = data[key]["__class__"]  # Get class name
-                    if class_name in classes:
+                    if class_name in self.__classes:
                         # Create new object
-                        self.__objects[key] = classes[class_name](**data[key])
+                        self.__objects[key] = self.__classes[class_name](**data[key])
         except FileNotFoundError:
             # If file not found (first time program runs)
             pass
+
+    def class_exists(self, class_name: str):
+        """Method checks if class exists"""
+        return class_name in self.__classes
+
+    def get_class(self, class_name: str):
+        """Method returns class"""
+        return self.__classes.get(class_name)
+
+    def get(self, class_name: str, id: str) -> base_model.BaseModel:
+        """Method retrieves an object based on class name and id"""
+        key = class_name + "." + id
+        return self.__objects.get(key)
+
+    def delete(self, obj=None):
+        """Method deletes obj from __objects if it’s inside"""
+        if obj:
+            key = obj.__class__.__name__ + "." + obj.id
+            if key in self.__objects:
+                del self.__objects[key]
+            self.save()
