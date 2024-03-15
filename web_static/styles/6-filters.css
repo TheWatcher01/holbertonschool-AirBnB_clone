@@ -2,7 +2,7 @@
   background-color: white;
   height: 70px;
   width: 100%;
-  border: 1px solid #DDDDDD;
+  border: 1px solid #dddddd;
   border-radius: 4px;
   display: flex;
   align-items: center;
@@ -31,7 +31,8 @@
   opacity: 0.9;
 }
 
-.locations, .amenities {
+.locations,
+.amenities {
   height: 100%;
   width: 25%;
   display: flex;
@@ -40,7 +41,7 @@
 }
 
 .locations {
-  border-right: 1px solid #DDDDDD;
+  border-right: 1px solid #dddddd;
   padding-left: 1rem;
   padding-right: 1rem;
   margin-left: 1rem;
@@ -53,12 +54,14 @@
   padding-right: 1rem;
 }
 
-.locations input, .amenities input {
+.locations input,
+.amenities input {
   font-weight: 400;
   font-size: 14px;
 }
 
-.locations label, .amenities label {
+.locations label,
+.amenities label {
   font-size: 14px;
   font-weight: 600;
 }
