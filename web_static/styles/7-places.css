@@ -1,0 +1,37 @@
+.places {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  justify-content: center;
+  padding: 30px;
+}
+
+.places article {
+  border: 1px solid #ff5a5f;
+  border-radius: 4px;
+  margin: 20px;
+  padding: 20px;
+  width: 390px;
+  display: grid;
+  padding-bottom: ;
+}
+
+.places h1 {
+  font-size: 1.875rem;
+  grid-column: 1/-1;
+  grid-row: 1;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.places h2 {
+  font-size: 1.875rem;
+  text-align: center;
+}
+
+@media screen and (max-width: 600px) {
+  .places {
+    grid-template-columns: 1fr;
+    padding: 15px;
+  }
+}

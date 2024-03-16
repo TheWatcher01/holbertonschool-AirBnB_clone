@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>AirBnB clone</title>
+    <link rel="icon" type="icon/ico" href="images/favicon.ico" />
+    <link rel="stylesheet" href="styles/4-common.css" />
+    <link rel="stylesheet" href="styles/3-header.css" />
+    <link rel="stylesheet" href="styles/3-footer.css" />
+    <link rel="stylesheet" href="styles/6-filters.css" />
+    <link rel="stylesheet" href="styles/7-places.css" />
+  </head>
+
+  <body>
+    <header>
+      <div class="logo"></div>
+    </header>
+
+    <div class="container">
+
+      <section class="filters">
+
+        <div class="locations">
+          <label for="states">States</label>
+          <input id="states" type="text" placeholder="California, Arizona..." />
+          <!-- Dropdown for States -->
+          <ul class="popover">
+            <li>
+              <h2 class="states">California</h2>
+              <ul class="cities">
+                <li>Los Angeles</li>
+                <li>San Francisco</li>
+              </ul>
+            </li>
+            <li>
+              <h2 class="states">Arizona</h2>
+              <ul class="cities">
+                <li>Phoenix</li>
+                <li>Tucson</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="amenities">
+          <label for="amenities">Amenities</label>
+          <input
+            id="amenities"
+            type="text"
+            placeholder="Internet, Kitchen..."
+          />
+          <!-- Dropdown for Amenities -->
+          <ul class="popover">
+            <li>Internet</li>
+            <li>TV</li>
+            <li>Kitchen</li>
+            <li>Parking</li>
+          </ul>
+        </div>
+        <button class="search-button">Search</button>
+
+      </section>
+      
+      <section class="places">
+        <h1>Places</h1>
+
+        <article class="place1">
+          <h2>My Home</h2>
+        </article>
+        
+        <article class="place2">
+          <h2>Tiny house</h2>
+        </article>
+
+        <article class="place3">
+          <h2>Suite</h2>
+        </article>
+
+      </section>
+
+    </div>
+
+    <footer>
+      <div class="text-footer">
+        <p>Holberton School</p>
+      </div>
+    </footer>
+
+  </body>
+
+</html>

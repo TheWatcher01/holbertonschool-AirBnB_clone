@@ -13,7 +13,9 @@
 </head>
 
 <body>
-    <header><div class="logo"></div></header>
+    <header>
+        <div class="logo"></div>
+    </header>
 
     <div class="container">
         <section class="filters">
@@ -23,17 +25,31 @@
                 <!-- Dropdown for States -->
                 <ul class="popover">
                     <li>
-                        <h2>California</h2>
-                        
+                        <h2 class="states">California</h2>
+                        <ul class="cities">
+                            <li>Los Angeles</li>
+                            <li>San Francisco</li>
+                        </ul>
                     </li>
                     <li>
-                        <h2>Arizona</h2>
+                        <h2 class="states">Arizona</h2>
+                        <ul class="cities">
+                            <li>Phoenix</li>
+                            <li>Tucson</li>
+                        </ul>
                     </li>
                 </ul>
             </div>
             <div class="amenities">
                 <label for="amenities">Amenities</label>
                 <input id="amenities" type="text" placeholder="Internet, Kitchen...">
+                <!-- Dropdown for Amenities -->
+                <ul class="popover">
+                    <li>Internet</li>
+                    <li>TV</li>
+                    <li>Kitchen</li>
+                    <li>Parking</li>
+                </ul>
             </div>
             <button class="search-button">Search</button>
         </section>
