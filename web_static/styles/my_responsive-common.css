@@ -1,0 +1,71 @@
+/**
+ * FILEPATH: /home/thewatcher/Holberton/holbertonschool-AirBnB_clone/web_static/styles/my_responsive-common.css
+ * 
+ * This CSS file contains styles for creating a responsive layout.
+ * It defines the styles for the body element and a container class.
+ * The container class adjusts its padding based on the screen size.
+ * 
+ * Styles:
+ * - body: Sets margin, padding, color, font size, and font family for the body element.
+ * - .container: Sets flex, width, max-width, margin, and padding for the container class.
+ * 
+ * Media Queries:
+ * - Smartwatch: Adjusts the padding of the container class for screens with a minimum width of 320px.
+ * - Mobile: Adjusts the padding of the container class for screens with a minimum width of 480px.
+ * - Tablet: Adjusts the max-width and padding of the container class for screens with a minimum width of 768px.
+ * - Laptop: Adjusts the max-width and padding of the container class for screens with a minimum width of 1024px.
+ * - Desktop: Adjusts the max-width and padding of the container class for screens with a minimum width of 1200px.
+ */
+body {
+  margin: 0;
+  padding: 0;
+  color: #484848;
+  font-size: 1rem;
+  font-family: Circular, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.container {
+  flex: 1;
+  width: 100%;
+  max-width: 100%;
+  margin: auto;
+  padding: 2em;
+}
+
+/* Smartwatch */
+@media (min-width: 320px) {
+  .container {
+    padding: 1em;
+  }
+}
+
+/* Mobile */
+@media (min-width: 480px) {
+  .container {
+    padding: 1.5em;
+  }
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+    padding: 2em;
+  }
+}
+
+/* Laptop */
+@media (min-width: 1024px) {
+  .container {
+    max-width: 960px;
+    padding: 2.5em;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+    padding: 3em;
+  }
+}
