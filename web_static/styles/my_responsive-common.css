@@ -1,71 +1,55 @@
-/**
- * FILEPATH: /home/thewatcher/Holberton/holbertonschool-AirBnB_clone/web_static/styles/my_responsive-common.css
- * 
- * This CSS file contains styles for creating a responsive layout.
- * It defines the styles for the body element and a container class.
- * The container class adjusts its padding based on the screen size.
- * 
- * Styles:
- * - body: Sets margin, padding, color, font size, and font family for the body element.
- * - .container: Sets flex, width, max-width, margin, and padding for the container class.
- * 
- * Media Queries:
- * - Smartwatch: Adjusts the padding of the container class for screens with a minimum width of 320px.
- * - Mobile: Adjusts the padding of the container class for screens with a minimum width of 480px.
- * - Tablet: Adjusts the max-width and padding of the container class for screens with a minimum width of 768px.
- * - Laptop: Adjusts the max-width and padding of the container class for screens with a minimum width of 1024px.
- * - Desktop: Adjusts the max-width and padding of the container class for screens with a minimum width of 1200px.
- */
 body {
   margin: 0;
   padding: 0;
   color: #484848;
-  font-size: 1rem;
+  font-size: 14px;
   font-family: Circular, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: #fff; /* Enhances contrast for better accessibility */
 }
 
 .container {
-  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
-  max-width: 100%;
+  max-width: 1000px; /* Adjusted for wider screens, ensure it does not exceed 1000px */
   margin: auto;
-  padding: 2em;
+  padding: 2em; /* Provides default padding */
 }
 
-/* Smartwatch */
-@media (min-width: 320px) {
+/* Responsive design adjustments */
+@media (max-width: 768px) {
   .container {
-    padding: 1em;
+    padding: 1em; /* Reduced padding on smaller screens */
+  }
+  
+  body {
+    font-size: 12px; /* Smaller text on smaller screens for better readability */
   }
 }
 
-/* Mobile */
-@media (min-width: 480px) {
-  .container {
-    padding: 1.5em;
-  }
+/* Accessibility improvements */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus {
+  outline: 3px dashed #ff5a5f; /* High contrast outline for focused elements */
+  outline-offset: 2px;
 }
 
-/* Tablet */
-@media (min-width: 768px) {
-  .container {
-    max-width: 720px;
-    padding: 2em;
-  }
+/* Improve readability for screen readers */
+.hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
 }
 
-/* Laptop */
-@media (min-width: 1024px) {
-  .container {
-    max-width: 960px;
-    padding: 2.5em;
-  }
-}
-
-/* Desktop */
-@media (min-width: 1200px) {
-  .container {
-    max-width: 1140px;
-    padding: 3em;
-  }
+/* Adjustments for hover states to improve interactive feedback */
+button:hover,
+a:hover {
+  opacity: 0.8;
 }

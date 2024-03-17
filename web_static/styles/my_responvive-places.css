@@ -1,41 +1,81 @@
 .places {
-  align-items: center;
-  display: grid;
-  grid-gap: 2rem;
-  grid-template-columns: repeat(2, 1fr);
-  justify-content: center;
-  margin: 30px auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 20px;
+  gap: 20px; /* Provides space between the place items */
 }
 
-.places article {
+.place {
+  background-color: #ffffff;
   border: 1px solid #ff5a5f;
   border-radius: 4px;
-  margin: 20px;
+  width: calc(
+    33.333% - 40px
+  ); /* Adjusts the width for 3 items per row with gap */
   padding: 20px;
-  width: 390px;
-  justify-items: center;
-  display: auto;
-  justify-items: auto;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
 }
 
-.places h1 {
-  font-size: 30px;
-  grid-column: 1/-1;
-  grid-row: 1;
-  margin-top: auto;
-  margin-bottom: 0.5rem;
+.place h2 {
+  color: #484848;
+  font-size: 24px;
+  margin-top: 0;
 }
 
-.places h2 {
-  font-size: 30px;
-  text-align: center;
+.price_by_night {
+  color: #ff5a5f;
+  font-size: 18px;
+  padding: 5px 10px;
+  border-radius: 4px;
+  border: 4px solid #ff5a5f;
+  width: fit-content;
+  margin-bottom: 15px; /* Spacing between the price and the next section */
 }
 
-.place3 {
-  grid-column: span 2;
-  justify-self: center;
+.information {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
 }
 
-.places ul {
-  list-style-type: none;
+.information > div {
+  display: flex;
+  align-items: center;
+  gap: 5px; /* Space between icon and text */
+}
+
+.user,
+.description {
+  font-size: 14px;
+  color: #757575;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .places {
+    justify-content: center;
+  }
+
+  .place {
+    width: calc(50% - 40px); /* Adjusts to 2 items per row */
+  }
+}
+
+@media (max-width: 768px) {
+  .places {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .place {
+    width: 80%; /* Full width for very small devices */
+  }
+}
+
+/* Accessibility improvements */
+.place:focus-within {
+  border-color: #76a7fa; /* High contrast border for focused items */
+  box-shadow: 0 0 0 3px -moz-mac-focusring;
+  outline: none;
 }

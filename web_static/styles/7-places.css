@@ -13,9 +13,12 @@
   margin: 20px;
   padding: 20px;
   width: 390px;
-  justify-items: center;
-  display: auto;
-  justify-items: auto;
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "info user"
+    "separator separator"
+    "desc desc";
 }
 
 .places h1 {
@@ -24,11 +27,15 @@
   grid-row: 1;
   margin-top: auto;
   margin-bottom: 0.5rem;
+  position: relative;
 }
 
 .places h2 {
   font-size: 30px;
   text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .place3 {
@@ -36,7 +43,79 @@
   justify-self: center;
 }
 
-.places ul {
-  list-style-type: none;
+.information,
+.user,
+.description {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 
+.information {
+  grid-area: info;
+}
+
+.user {
+  grid-area: user;
+}
+
+.separator {
+  grid-area: separator;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  height: 1px;
+}
+
+.description {
+  grid-area: desc;
+}
+
+.max_guest,
+.number_rooms,
+.number_bathrooms {
+  display: flex;
+  align-items: center;
+}
+
+.max_guest::before {
+  content: "\f0c0"; /* Code Unicode pour l'icône fa-users */
+  font-family: "Font Awesome 5 Free"; /* Nom de la famille de polices pour Font Awesome 5 */
+  font-weight: 900; /* Poids de la police pour les icônes solides */
+  margin-right: 10px;
+}
+
+.number_rooms::before {
+  content: "\f236"; /* Code Unicode pour l'icône fa-bed */
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  margin-right: 10px;
+}
+
+.number_bathrooms::before {
+  content: "\f2cd"; /* Code Unicode pour l'icône fa-bath */
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  margin-right: 10px;
+}
+
+.price_by_night {
+  position: relative;
+}
+
+.price_indicator {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: white;
+  border: 0.3rem solid #ff5a5f;
+  border-radius: 50%;
+  padding: 10px;
+  color: #ff5a5f;
+  font-weight: bold;
+}
+
+.price_circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

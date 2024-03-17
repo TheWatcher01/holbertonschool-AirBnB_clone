@@ -1,87 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
-    />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AirBnB clone</title>
-    <link rel="icon" type="icon/ico" href="images/favicon.ico" />
-    <link rel="stylesheet" href="styles/my_responsive-common.css" />
-    <link rel="stylesheet" href="styles/my_responsive-header.css" />
-    <link rel="stylesheet" href="styles/my_responsive-filters.css" />
-    <link rel="stylesheet" href="styles/my_responvive-places.css" />
-    <link rel="stylesheet" href="styles/my_responsive-footer.css" />
-  </head>
-
-  <body>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles/my_responsive-common.css">
+    <link rel="stylesheet" href="styles/my_responsive-header.css">
+    <link rel="stylesheet" href="styles/my_responsive-footer.css">
+    <link rel="stylesheet" href="styles/my_responsive-filters.css">
+    <link rel="stylesheet" href="styles/my_responsive-places.css">
+</head>
+<body>
     <header>
-      <div class="logo"></div>
+        <div class="logo"></div>
     </header>
 
     <div class="container">
-      <section class="filters">
-        <div class="locations">
-          <label for="states">States</label>
-          <input id="states" type="text" placeholder="California, Arizona..." />
-          <!-- Dropdown for States -->
-          <ul class="popover">
-            <li>
-              <h2 class="states">California</h2>
-              <ul class="cities">
-                <li>Los Angeles</li>
-                <li>San Francisco</li>
-              </ul>
-            </li>
-            <li>
-              <h2 class="states">Arizona</h2>
-              <ul class="cities">
-                <li>Phoenix</li>
-                <li>Tucson</li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-        <div class="amenities">
-          <label for="amenities">Amenities</label>
-          <input
-            id="amenities"
-            type="text"
-            placeholder="Internet, Kitchen..."
-          />
-          <!-- Dropdown for Amenities -->
-          <ul class="popover">
-            <li>Internet</li>
-            <li>TV</li>
-            <li>Kitchen</li>
-            <li>Parking</li>
-          </ul>
-        </div>
-        <button class="search-button">Search</button>
-      </section>
+        <section class="filters">
+            <div class="locations">
+                <label for="states">States</label>
+                <input id="states" type="text" placeholder="California, Arizona...">
+                <ul class="popover" aria-label="States dropdown" style="display:none;">
+                    <!-- Dynamically populated based on project requirements -->
+                </ul>
+            </div>
+            <div class="amenities">
+                <label for="amenities">Amenities</label>
+                <input id="amenities" type="text" placeholder="Internet, Kitchen...">
+                <ul class="popover" aria-label="Amenities dropdown" style="display:none;">
+                    <!-- Dynamically populated based on project requirements -->
+                </ul>
+            </div>
+            <button class="search-button">Search</button>
+        </section>
 
-      <section class="places">
-        <h1>Places</h1>
-
-        <article class="place1">
-          <h2>My Home</h2>
-        </article>
-
-        <article class="place2">
-          <h2>Tiny house</h2>
-        </article>
-
-        <article class="place3">
-          <h2>Suite</h2>
-        </article>
-      </section>
+        <section class="places">
+            <h1>Places</h1>
+            <article class="place">
+                <h2>My Home</h2>
+                <div class="price_by_night">$50/night</div>
+                <div class="information">
+                    <div class="max_guest">4 guests</div>
+                    <div class="number_rooms">2 bedrooms</div>
+                    <div class="number_bathrooms">1 bathroom</div>
+                </div>
+                <div class="user">Owner: John Doe</div>
+                <div class="description">
+                    A beautiful house in the heart of the city, perfect for vacations.
+                </div>
+            </article>
+            <!-- Additional places can be added here -->
+        </section>
     </div>
 
     <footer>
-      <div class="text-footer">
-        <p>Holberton School</p>
-      </div>
+        <div class="text-footer">Holberton School</div>
     </footer>
-  </body>
+</body>
 </html>

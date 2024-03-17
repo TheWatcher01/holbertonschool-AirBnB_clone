@@ -1,0 +1,55 @@
+/**
+ * FILEPATH: @media.css
+ * 
+ * This CSS code defines media queries for different screen sizes and adjusts the padding and max-width of the container element accordingly.
+ * 
+ */
+/* Smartwatch */
+@media (min-width: 20em) {
+  /* 320px/16 = 20em */
+  .container {
+    padding: 1em; /* Reduced padding for smaller screens */
+  }
+}
+
+/* Mobile */
+@media (min-width: 30em) {
+  /* 480px/16 = 30em */
+  .container {
+    padding: 1.5em; /* Adjusted padding for mobile screens */
+  }
+}
+
+/* Tablet */
+@media (min-width: 48em) {
+  /* 768px/16 = 48em */
+  .container {
+    max-width: 45em; /* Adjusting max-width for tablet screens */
+    padding: 2em;
+  }
+}
+
+/* Laptop */
+@media (min-width: 64em) {
+  /* 1024px/16 = 64em */
+  .container {
+    max-width: 60em; /* Adjusting max-width for laptop screens */
+    padding: 2.5em;
+  }
+}
+
+/* Desktop */
+@media (min-width: 75em) {
+  /* 1200px/16 = 75em */
+  .container {
+    max-width: 71.25em; /* Adjusting max-width for desktop screens */
+    padding: 3em;
+  }
+} /* TV */
+@media (min-width: 100em) {
+  /* 1600px/16 = 100em */
+  .container {
+    max-width: 95em; /* Adjusting max-width for TV screens */
+    padding: 4em;
+  }
+}
