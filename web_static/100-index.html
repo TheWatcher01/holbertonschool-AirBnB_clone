@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta tags -->
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+
+    <!-- Title -->
+    <title>AirBnB clone</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="icon/ico" href="images/favicon.ico" />
+
+    <!-- Font Awesome for Glyphicons -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    />
+
+    <!-- CSS files -->
+    <link rel="stylesheet" href="styles/4-common.css" />
+    <link rel="stylesheet" href="styles/3-header.css" />
+    <link rel="stylesheet" href="styles/3-footer.css" />
+    <link rel="stylesheet" href="styles/6-filters.css" />
+    <link rel="stylesheet" href="styles/100-places.css" />
+  </head>
+
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="logo"></div>
+    </header>
+
+    <!-- Main container -->
+    <div class="container">
+      <!-- Filters section -->
+      <section class="filters">
+        <!-- Locations filter -->
+        <div class="locations">
+          <label for="states">States</label>
+          <input id="states" type="text" placeholder="California, Arizona..." />
+          <!-- Dropdown for States -->
+          <ul class="popover">
+            <li>
+              <h2 class="states">California</h2>
+              <ul class="cities">
+                <li>Los Angeles</li>
+                <li>San Francisco</li>
+              </ul>
+            </li>
+            <li>
+              <h2 class="states">Arizona</h2>
+              <ul class="cities">
+                <li>Phoenix</li>
+                <li>Tucson</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Amenities filter -->
+        <div class="amenities">
+          <label for="amenities">Amenities</label>
+          <input
+            id="amenities"
+            type="text"
+            placeholder="Internet, Kitchen..."
+          />
+          <!-- Dropdown for Amenities -->
+          <ul class="popover">
+            <li>Internet</li>
+            <li>TV</li>
+            <li>Kitchen</li>
+            <li>Parking</li>
+          </ul>
+        </div>
+
+        <!-- Search button -->
+        <button class="search-button">Search</button>
+      </section>
+
+      <!-- Places section -->
+      <section class="places">
+        <h1>Places</h1>
+
+        <!-- Place 1 -->
+        <article class="place1">
+          <h2>My Home</h2>
+
+          <!-- Price by Night -->
+          <div class="price_by_night">
+            <div class="price_indicator">
+              <div class="price_circle">$80</div>
+            </div>
+          </div>
+
+          <!-- Information Section -->
+          <div class="information">
+            <!-- Max Guest Section -->
+            <div class="max_guest">4 Guests</div>
+
+            <!-- Number Rooms Section -->
+            <div class="number_rooms">2 Bedrooms</div>
+
+            <!-- Number Bathrooms Section -->
+            <div class="number_bathrooms">1 Bathroom</div>
+          </div>
+
+          <!-- User Section -->
+          <div class="user"><strong>Owner:</strong>John Doe</div>
+
+          <!-- Description Section -->
+          <div class="description">
+            <p>
+              Welcome to our cozy Tiny house! Escape the hustle and bustle of
+              everyday life and immerse yourself in the charm of our Tiny house.
+              Inside, you'll find a well-appointed bedroom with a plush bed, a
+              compact yet fully-equipped kitchenette, and a clean and modern
+              bathroom. Step outside and soak up the serene surroundings...
+            </p>
+          </div>
+
+          <!-- Amenities Section -->
+          <div class="amenities-description">
+            <h2>Amenities</h2>
+            <ul>
+              <li class="tv">TV</li>
+              <li class="wifi">Wifi</li>
+              <li class="pet-friendly">Pet friendly</li>
+              <!-- Add more amenities as needed -->
+            </ul>
+          </div>
+
+          <!-- Reviews Section -->
+          <div class="reviews">
+            <h2>Reviews</h2>
+            <ul>
+              <li>
+                <h3>From Bob Dylan the 27th January 2017</h3>
+                <p>This place was great! Would definitely stay here again.</p>
+              </li>
+              <!-- Add more reviews as needed -->
+            </ul>
+          </div>
+        </article>
+
+        <!-- Place 2 -->
+        <article class="place2">
+          <h2>My Home</h2>
+
+          <!-- Price by Night -->
+          <div class="price_by_night">
+            <div class="price_indicator">
+              <div class="price_circle">$80</div>
+            </div>
+          </div>
+
+          <!-- Information Section -->
+          <div class="information">
+            <!-- Max Guest Section -->
+            <div class="max_guest">4 Guests</div>
+
+            <!-- Number Rooms Section -->
+            <div class="number_rooms">2 Bedrooms</div>
+
+            <!-- Number Bathrooms Section -->
+            <div class="number_bathrooms">1 Bathroom</div>
+          </div>
+
+          <!-- User Section -->
+          <div class="user"><strong>Owner:</strong>John Doe</div>
+
+          <!-- Description Section -->
+          <div class="description">
+            <p>
+              Welcome to our cozy Tiny house! Escape the hustle and bustle of
+              everyday life and immerse yourself in the charm of our Tiny house.
+              Inside, you'll find a well-appointed bedroom with a plush bed, a
+              compact yet fully-equipped kitchenette, and a clean and modern
+              bathroom. Step outside and soak up the serene surroundings...
+            </p>
+          </div>
+
+          <!-- Amenities Section -->
+          <div class="amenities-description">
+            <h2>Amenities</h2>
+            <ul>
+              <li class="tv">TV</li>
+              <li class="wifi">Wifi</li>
+              <li class="pet-friendly">Pet friendly</li>
+              <!-- Add more amenities as needed -->
+            </ul>
+          </div>
+
+          <!-- Reviews Section -->
+          <div class="reviews">
+            <h2>Reviews</h2>
+            <ul>
+              <li>
+                <h3>From Bob Dylan the 27th January 2017</h3>
+                <p>This place was great! Would definitely stay here again.</p>
+              </li>
+              <!-- Add more reviews as needed -->
+            </ul>
+          </div>
+        </article>
+
+        <!-- Place 3 -->
+        <article class="place3">
+          <h2>My Home</h2>
+
+          <!-- Price by Night -->
+          <div class="price_by_night">
+            <div class="price_indicator">
+              <div class="price_circle">$80</div>
+            </div>
+          </div>
+
+          <!-- Information Section -->
+          <div class="information">
+            <!-- Max Guest Section -->
+            <div class="max_guest">4 Guests</div>
+
+            <!-- Number Rooms Section -->
+            <div class="number_rooms">2 Bedrooms</div>
+
+            <!-- Number Bathrooms Section -->
+            <div class="number_bathrooms">1 Bathroom</div>
+          </div>
+
+          <!-- User Section -->
+          <div class="user"><strong>Owner:</strong>John Doe</div>
+
+          <!-- Description Section -->
+          <div class="description">
+            <p>
+              Welcome to our cozy Tiny house! Escape the hustle and bustle of
+              everyday life and immerse yourself in the charm of our Tiny house.
+              Inside, you'll find a well-appointed bedroom with a plush bed, a
+              compact yet fully-equipped kitchenette, and a clean and modern
+              bathroom. Step outside and soak up the serene surroundings...
+            </p>
+          </div>
+
+          <!-- Amenities Section -->
+          <div class="amenities-description">
+            <h2>Amenities</h2>
+            <ul>
+              <li class="tv">TV</li>
+              <li class="wifi">Wifi</li>
+              <li class="pet-friendly">Pet friendly</li>
+              <!-- Add more amenities as needed -->
+            </ul>
+          </div>
+
+          <!-- Reviews Section -->
+          <div class="reviews">
+            <h2>Reviews</h2>
+            <ul>
+              <li>
+                <h3>From Bob Dylan the 27th January 2017</h3>
+                <p>This place was great! Would definitely stay here again.</p>
+              </li>
+              <!-- Add more reviews as needed -->
+            </ul>
+          </div>
+        </article>
+      </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="text-footer">
+        <p>Holberton School</p>
+      </div>
+    </footer>
+  </body>
+</html>
