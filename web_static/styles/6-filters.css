@@ -54,9 +54,8 @@
 
 input {
   width: 100%;
-  padding: 8px;
-  border: 1px solid #dddddd;
-  border-radius: 4px;
+  padding-top: 2%;
+  border: none;
 }
 
 .popover {
